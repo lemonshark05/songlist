@@ -2,6 +2,14 @@
  * CS 514
  * Zhimin meng
  */
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.FileInputStream;
 import java.util.ArrayList;
 
 public class Library {
@@ -29,6 +37,11 @@ public class Library {
         return likedSongs;
     }
 
+    public String getContent(Node n) {
+        Node child = n.getFirstChild();
+        return child.getNodeValue().trim();
+    }
+
     public void readXml(String filename) {
         filename = "src/"+filename;
         try{
@@ -45,7 +58,7 @@ public class Library {
             for(int i=0;i<songlist.getLength();i++) {
                 curNode = songlist.item(i);
                 NodeList children = curNode.getChildNodes();
-                song1 = new Song();
+                song1 = new Song("");
                 for(int j = 0;j<children.getLength();j++) {
                     subNode = children.item(j);
                     if (subNode.getNodeType() == Node.ELEMENT_NODE) {
@@ -53,11 +66,11 @@ public class Library {
                             song1.setName(getContent(subNode));
                         } else if (subNode.getNodeName().equals("album")) {
                             int id = Integer.parseInt(subNode.getAttributes().getNamedItem("id").getNodeValue());
-                            Album album1 = new Album(getContent(subNode), id);
+                            Album album1 = new Album(getContent(subNode));
                             song1.setAlbum(album1);
                         } else if (subNode.getNodeName().equals("artist")) {
                             int id = Integer.parseInt(subNode.getAttributes().getNamedItem("id").getNodeValue());
-                            Artist artist1 = new Artist(getContent(subNode), id);
+                            Artist artist1 = new Artist(getContent(subNode));
                             song1.setArtist(artist1);
                         }
                     }
