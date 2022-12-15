@@ -87,42 +87,40 @@ public class Song extends Entity {
     }
 
     public void deleteSong(){
-        String result = "";
-        // set a counter for the number of guesses so far.
-        int trytime = 6;
-        String path = System.getProperty("user.dir")+"/src/";
-        String file = path+"wordleWords";
-        System.out.println("The secret word is generated. ");
 
-        // loop:
-        while(trytime>0){
-            System.out.println("Please input your guess word (you have "+trytime+" attempts): ");
-            Scanner in = new Scanner(System.in);
-            String guess = in.nextLine();
-            if(true){
-
-            }else{
-                System.out.println("Warning: Be sure to enter a "
-                        +" letter word! ");
-            }
-            trytime--;
-            // the guess is right?
-            if(result.equals("!!!!!")){
-                System.out.println("Congratulation! You guessed it correct answer.");
-
-                trytime = 0;
-            }else{
-                System.out.println("You didn't guess the correct answer. ");
-
-                // Show the letters guessed so far
-                System.out.println("Notice: your guessed letters is ");
-
-            }
-        }
     }
 
     public static void main(String[] args) {
-        String record = System.getProperty("user.dir");
+        int option = 1;
+        String path = System.getProperty("user.dir")+"/src/";
+        String file = path+"wordleWords";
+        System.out.println("The secret word is generated. ");
+        // loop:
+        while(option>0){
+            System.out.println("Please select your option (you have 3 options): ");
+            System.out.println("  1. Display all songs, artists, and albums. ");
+            System.out.println("  2. Partially specify a song, artist, or album. ");
+            System.out.println("  3. Generate a XML file contains a playlist based on genre. ");
+            Scanner in = new Scanner(System.in);
+            int choice1 = in.nextInt();
+            if(choice1 == 1){
 
+            }else if(choice1 ==2){
+
+            }else if(choice1 ==3){
+
+            }else{
+                System.out.println("The input is error!!!");
+                System.out.println("Do you want to try it again?(Y/N)");
+                Scanner in2 = new Scanner(System.in);
+                String choice2 = in.nextLine();
+                if(choice2.equals("Y")){
+                    option = 1;
+                }else {
+                    option = 0;
+                }
+            }
+            // the guess is right?
+        }
     }
 }

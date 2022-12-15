@@ -1,5 +1,5 @@
 /**
- * CS 514 Lab3
+ * CS 514
  * Zhimin meng
  */
 import org.junit.jupiter.api.BeforeAll;

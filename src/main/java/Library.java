@@ -2,6 +2,9 @@
  * CS 514
  * Zhimin meng
  */
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -9,8 +12,11 @@ import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import java.io.FileInputStream;
+import java.io.*;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Library {
     private ArrayList<Song> songs;
@@ -42,43 +48,36 @@ public class Library {
         return child.getNodeValue().trim();
     }
 
-    public void readXml(String filename) {
-        filename = "src/"+filename;
+    public String loadJson(String urlstr){
+        StringBuilder json = new StringBuilder();
         try{
-            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-            DocumentBuilder db = dbf.newDocumentBuilder();
-            Document doc = db.parse(new FileInputStream(filename));
-
-            Element root = doc.getDocumentElement();
-            System.out.println(root.getTagName());
-            Node curNode, subNode;
-            Song song1;
-            NodeList songlist = root.getElementsByTagName("song");
-
-            for(int i=0;i<songlist.getLength();i++) {
-                curNode = songlist.item(i);
-                NodeList children = curNode.getChildNodes();
-                song1 = new Song("");
-                for(int j = 0;j<children.getLength();j++) {
-                    subNode = children.item(j);
-                    if (subNode.getNodeType() == Node.ELEMENT_NODE) {
-                        if (subNode.getNodeName().equals("title")) {
-                            song1.setName(getContent(subNode));
-                        } else if (subNode.getNodeName().equals("album")) {
-                            int id = Integer.parseInt(subNode.getAttributes().getNamedItem("id").getNodeValue());
-                            Album album1 = new Album(getContent(subNode));
-                            song1.setAlbum(album1);
-                        } else if (subNode.getNodeName().equals("artist")) {
-                            int id = Integer.parseInt(subNode.getAttributes().getNamedItem("id").getNodeValue());
-                            Artist artist1 = new Artist(getContent(subNode));
-                            song1.setArtist(artist1);
-                        }
-                    }
-                }
-                System.out.println(song1.toString());
+            URL urljson = new URL(urlstr);
+            URLConnection uc = urljson.openConnection();
+            BufferedReader in = new BufferedReader(new InputStreamReader(uc.getInputStream(),"utf-8"));
+            String line = null;
+            while((line = in.readLine())!=null) {
+                json.append(line);
             }
-        }catch (Exception e) {
-            System.out.println("Reading Xml document have some problems: "+e);
+            in.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+            return json.toString();
+    }
+
+    public void readFromJson(String json) {
+        try{
+            JSONParser parser = new JSONParser();
+            Object obj = parser.parse(json);
+            JSONObject jsonObject = (JSONObject) obj;
+
+            JSONArray songArray = (JSONArray) jsonObject.get("songs");
+            for(Object song:songArray){
+                JSONObject jsong = (JSONObject) song;
+                System.out.println(jsong.get("title"));
+            }
+        }catch (Exception e){
+           e.printStackTrace();
         }
     }
 }
