@@ -71,7 +71,8 @@ public class Song extends Entity {
     }
 
     public String toString(){
-        return "Name: "+this.name+" ID: "+this.entityID;
+        return "Name: "+this.name+" ID: "+this.entityID+" Artist:"+
+                this.artist.name+" Album: "+this.album.name+"genre: "+this.genre;
     }
 
     public String toXML(){
