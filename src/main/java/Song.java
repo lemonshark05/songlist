@@ -118,7 +118,6 @@ public class Song extends Entity {
                     option = 0;
                 }
             }
-            // the guess is right?
         }
     }
 }

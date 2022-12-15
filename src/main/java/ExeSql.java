@@ -1,7 +1,8 @@
 import java.sql.*;
 
 public class ExeSql {
-    public void exeSql (String sql,int type){
+
+    public void getSql (String sql,int type){
         Connection connection = null;
         try {
             // create a database connection
@@ -26,7 +27,7 @@ public class ExeSql {
             }
         }
     }
-    public ResultSet exeSql(String sql){
+    public ResultSet getSql(String sql){
         Connection connection = null;
         ResultSet rs = null;
         try {
