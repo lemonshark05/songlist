@@ -1,3 +1,4 @@
+import java.sql.ResultSet;
 import java.util.Scanner;
 
 /**
@@ -87,11 +88,9 @@ public class Song extends Entity {
         return xml+"</song>\n";
     }
 
-    public void deleteSong(){
-
-    }
-
     public static void main(String[] args) {
+        Library lib = new Library();
+        ExeSql exe = new ExeSql();
         int option = 1;
         // loop:
         while(option>0){
@@ -104,9 +103,33 @@ public class Song extends Entity {
             if(choice1 == 1){
 
             }else if(choice1 ==2){
-
+                System.out.println("Please select your second option (you have 3 options): ");
+                System.out.println("  1. Song ");
+                System.out.println("  2. Artist ");
+                System.out.println("  3. Album ");
+                Scanner in2 = new Scanner(System.in);
+                int c2 = in.nextInt();
+                String json = "";
+                if(c2==1){
+                    System.out.println("Please input song name: ");
+                    Scanner in3 = new Scanner(System.in);
+                    String c3 = in.nextLine();
+                    exe.getSql("select * from songs where name="+c3+";");
+                }else if(c2==2){
+                    System.out.println("Please input artist name: ");
+                    Scanner in3 = new Scanner(System.in);
+                    String c3 = in.nextLine();
+                    exe.getSql("select * from artists where name="+c3+";");
+                }else if(c2==3){
+                    System.out.println("Please input artist name: ");
+                    Scanner in3 = new Scanner(System.in);
+                    String c3 = in.nextLine();
+                    exe.getSql("select * from artists where name="+c3+";");
+                }
             }else if(choice1 ==3){
-
+                ResultSet res = exe.getSql("");
+                Playlist play = new Playlist();
+                play.getInfo(res);
             }else{
                 System.out.println("The input is error!!!");
                 System.out.println("Do you want to try it again?(Y/N)");

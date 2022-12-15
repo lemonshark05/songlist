@@ -2,7 +2,7 @@ import java.sql.*;
 
 public class ExeSql {
 
-    public void getSql (String sql,int type){
+    public void getSql (String sql, int type){
         Connection connection = null;
         try {
             // create a database connection

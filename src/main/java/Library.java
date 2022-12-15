@@ -70,7 +70,6 @@ public class Library {
             JSONParser parser = new JSONParser();
             Object obj = parser.parse(json);
             JSONObject jsonObject = (JSONObject) obj;
-
             JSONArray songArray = (JSONArray) jsonObject.get("songs");
             for(Object song:songArray){
                 JSONObject jsong = (JSONObject) song;

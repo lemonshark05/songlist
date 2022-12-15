@@ -3,6 +3,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -56,5 +57,16 @@ public class Playlist {
             System.exit(-1);
         }
         return sc;
+    }
+
+    public void getInfo(ResultSet rs){
+        try{
+            while (rs.next()) {
+                Song s1 = new Song(rs.getString("name"));
+                s1.entityID = rs.getInt("id");
+            }
+        }catch (Exception e){
+
+        }
     }
 }
