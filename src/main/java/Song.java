@@ -92,9 +92,6 @@ public class Song extends Entity {
 
     public static void main(String[] args) {
         int option = 1;
-        String path = System.getProperty("user.dir")+"/src/";
-        String file = path+"wordleWords";
-        System.out.println("The secret word is generated. ");
         // loop:
         while(option>0){
             System.out.println("Please select your option (you have 3 options): ");
