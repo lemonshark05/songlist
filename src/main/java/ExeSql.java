@@ -9,11 +9,11 @@ public class ExeSql {
             connection = DriverManager.getConnection("jdbc:sqlite:songlist.db");
             Statement statement = connection.createStatement();
             statement.setQueryTimeout(30);  // set timeout to 30 sec.
+            statement.executeUpdate(sql);
             if(type!=0){
-                statement.executeUpdate(sql);
                 System.out.println(sql);
                 System.out.println("Execute add sql!!!");
-            }
+            };
         }catch (SQLException e) {
             System.out.println(e.getMessage());
         } finally {
@@ -26,7 +26,7 @@ public class ExeSql {
             }
         }
     }
-    public ResultSet getSql(String sql){
+    public void showSql(String sql){
         Connection connection = null;
         ResultSet rs = null;
         try {
@@ -53,6 +53,30 @@ public class ExeSql {
                 System.err.println(e.getMessage());
             }
         }
-        return rs;
+    }
+
+    public Playlist getSqllist(String sql){
+        Connection connection = null;
+        ResultSet rs = null;
+        Playlist play = new Playlist();
+        try {
+            // create a database connection
+            connection = DriverManager.getConnection("jdbc:sqlite:songlist.db");
+            Statement statement = connection.createStatement();
+            statement.setQueryTimeout(30);  // set timeout to 30 sec.
+            rs = statement.executeQuery(sql);
+            play.getInfo(rs);
+        }catch (SQLException e) {
+            System.err.println(e.getMessage());
+        } finally {
+            try {
+                if (connection != null)
+                    connection.close();
+            } catch (SQLException e) {
+                // connection close failed.
+                System.err.println(e.getMessage());
+            }
+        }
+        return play;
     }
 }

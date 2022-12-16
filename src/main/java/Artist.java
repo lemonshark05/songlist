@@ -8,6 +8,9 @@ public class Artist extends Entity {
     public Artist(String name) {
         super(name);
     }
+    public Artist(int id,String name) {
+        super(id,name);
+    }
 
     public void addSong(Song s) {
         songs.add(s);

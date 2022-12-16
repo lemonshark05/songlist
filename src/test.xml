@@ -1,12 +1,94 @@
 <library>
 <songs>
-<song id="1">
+<song id="100">
 <title>
-Yellow Submarine</title>
-</song>
-<song id="2">
+Steady, as She Goes</title>
+<artist id="112020">
+TestA
+</artist>
+<album id="2115879">
+Broken Boy Soldiers
+</album>
+<genre>Rock</genre></song>
+<song id="101">
 <title>
-Yesterday</title>
-</song>
+Hands</title>
+<artist id="112020">
+TestA
+</artist>
+<album id="2115879">
+Broken Boy Soldiers
+</album>
+<genre>Rock</genre></song>
+<song id="102">
+<title>
+Broken Boy Soldier</title>
+<artist id="112020">
+TestA
+</artist>
+<album id="2115879">
+Broken Boy Soldiers
+</album>
+<genre>Rock</genre></song>
+<song id="103">
+<title>
+Together</title>
+<artist id="112020">
+TestA
+</artist>
+<album id="2115879">
+Broken Boy Soldiers
+</album>
+<genre>Rock</genre></song>
+<song id="104">
+<title>
+Level</title>
+<artist id="112020">
+TestA
+</artist>
+<album id="2115879">
+Broken Boy Soldiers
+</album>
+<genre>Rock</genre></song>
+<song id="105">
+<title>
+Salute Your Solution</title>
+<artist id="112020">
+TestA
+</artist>
+<album id="2115880">
+Consolers of the Lonely
+</album>
+<genre>Rock</genre></song>
+<song id="106">
+<title>
+Help Me Stranger</title>
+<artist id="112020">
+TestA
+</artist>
+<album id="2322766">
+Help Us Stranger
+</album>
+<genre>Rock</genre></song>
+<song id="107">
+<title>
+Sunday Driver</title>
+<artist id="112020">
+TestA
+</artist>
+<album id="2322766">
+Help Us Stranger
+</album>
+<genre>Rock</genre></song>
+<song id="108">
+<title>
+Now That You're Gone</title>
+<artist id="112020">
+TestA
+</artist>
+<album id="2322766">
+Help Us Stranger
+</album>
+<genre>Rock</genre></song>
 </songs>
 </library>

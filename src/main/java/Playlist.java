@@ -64,9 +64,13 @@ public class Playlist {
             while (rs.next()) {
                 Song s1 = new Song(rs.getString("name"));
                 s1.entityID = rs.getInt("id");
+                s1.genre = rs.getString("genre");
+                s1.setArtist(new Artist(rs.getInt("artistid"),rs.getString("artist")));
+                s1.setAlbum(new Album(rs.getInt("albumid"),rs.getString("album")));
+                songlist.add(s1);
             }
         }catch (Exception e){
-
+            e.printStackTrace();
         }
     }
 }

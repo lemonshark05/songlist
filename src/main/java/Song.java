@@ -85,6 +85,7 @@ public class Song extends Entity {
         if(this.album!=null) {
             xml+= album.toXML();
         }
+        xml +="<genre>"+this.genre+"</genre>";
         return xml+"</song>\n";
     }
 
@@ -103,10 +104,12 @@ public class Song extends Entity {
             System.out.println("  2. Partially specify a song, artist, or album. ");
             System.out.println("  3. Generate a XML file contains a playlist based on genre. ");
             Scanner in = new Scanner(System.in);
-            int choice1 = in.nextInt();
-            if(choice1 == 1){
-                exe.getSql("select s.id as id, s.name as name, a.name as artist, b.name as album from songs as s left join artists as a on a.id =s.artist left join albums as b on s.album = b.id;");
-            }else if(choice1 ==2){
+            String choice1 = in.nextLine();
+            if(choice1.equals("1")){
+                exe.showSql("select s.id as id, s.name as name, a.name as artist, b.name as album, b.genre as " +
+                        "genre from songs as s left join artists as a on a.id =s.artist left join albums as b " +
+                        "on s.album = b.id;");
+            }else if(choice1.equals("2")){
                 System.out.println("Please select your second option (you have 3 options): ");
                 System.out.println("  1. Song ");
                 System.out.println("  2. Artist ");
@@ -155,16 +158,17 @@ public class Song extends Entity {
                         lib.addFromJson(json, "album");
                     }
                 }
-            }else if(choice1 ==3){
+            }else if(choice1.equals("3")){
                 System.out.println("Generate a xml file ( ^-^ )");
-                ResultSet res = exe.getSql("select id, name, artist, album from songs;");
-                Playlist play = new Playlist();
-                play.getInfo(res);
+                Playlist play = exe.getSqllist("select s.id as id, s.name as name, a.id as artistid, a.name as artist, " +
+                        "b.id as albumid,b.name as album, b.genre as genre from songs as s left join artists as a " +
+                        "on a.id =s.artist left join albums as b on s.album = b.id;");
+                play.createXML();
             }else{
                 System.out.println("The input is error!!!");
                 System.out.println("Do you want to try it again?(Y/N)");
                 Scanner in2 = new Scanner(System.in);
-                String choice2 = in.nextLine();
+                String choice2 = in2.nextLine();
                 if(choice2.equals("Y")){
                     option = 1;
                 }else {

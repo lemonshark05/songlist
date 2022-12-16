@@ -20,6 +20,13 @@ public class Entity {
         dataCreated = new Date();
     }
 
+    public Entity(int id, String name) {
+        this.name = name;
+        entityCounter++;
+        this.entityID = id;
+        dataCreated = new Date();
+    }
+
     public String getName() {
         return name;
     }

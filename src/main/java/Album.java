@@ -8,6 +8,10 @@ public class Album extends Entity {
         super(name);
     }
 
+    public Album(int id,String name) {
+        super(id,name);
+    }
+
     public void addSong(Song s) {
         songs.add(s);
     }
