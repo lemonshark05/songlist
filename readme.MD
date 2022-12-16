@@ -18,4 +18,4 @@ Follow the prompts to insert the appropriate data directly.
 I use TheAudioDB and can find more information here: https://www.theaudiodb.com/api_guide.php;
 After adding the data of 1.song and 3.album, you can choose to display the data of songlist and generate an XML list.
 
-
+My jar :songlist/target/songlist-1.1.jar
