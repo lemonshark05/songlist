@@ -101,7 +101,7 @@ public class Song extends Entity {
             Scanner in = new Scanner(System.in);
             int choice1 = in.nextInt();
             if(choice1 == 1){
-
+                exe.getSql("select * from songs;");
             }else if(choice1 ==2){
                 System.out.println("Please select your second option (you have 3 options): ");
                 System.out.println("  1. Song ");
@@ -114,17 +114,17 @@ public class Song extends Entity {
                     System.out.println("Please input song name: ");
                     Scanner in3 = new Scanner(System.in);
                     String c3 = in.nextLine();
-                    exe.getSql("select * from songs where name="+c3+";");
+                    exe.getSql("select * from songs where name=\""+c3+"\";");
                 }else if(c2==2){
                     System.out.println("Please input artist name: ");
                     Scanner in3 = new Scanner(System.in);
                     String c3 = in.nextLine();
-                    exe.getSql("select * from artists where name="+c3+";");
+                    exe.getSql("select * from artists where name=\""+c3+"\";");
                 }else if(c2==3){
                     System.out.println("Please input artist name: ");
                     Scanner in3 = new Scanner(System.in);
                     String c3 = in.nextLine();
-                    exe.getSql("select * from artists where name="+c3+";");
+                    exe.getSql("select * from albums where name=\""+c3+"\";");
                 }
             }else if(choice1 ==3){
                 ResultSet res = exe.getSql("");

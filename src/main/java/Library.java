@@ -70,10 +70,13 @@ public class Library {
             JSONParser parser = new JSONParser();
             Object obj = parser.parse(json);
             JSONObject jsonObject = (JSONObject) obj;
-            JSONArray songArray = (JSONArray) jsonObject.get("songs");
+            JSONArray songArray = (JSONArray) jsonObject.get("mvids");
             for(Object song:songArray){
                 JSONObject jsong = (JSONObject) song;
-                System.out.println(jsong.get("title"));
+                System.out.println(jsong.get("idArtist"));
+                System.out.println(jsong.get("idAlbum"));
+                System.out.println(jsong.get("idTrack"));
+                System.out.println(jsong.get("strTrack"));
             }
         }catch (Exception e){
            e.printStackTrace();
