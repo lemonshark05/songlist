@@ -92,6 +92,10 @@ public class Song extends Entity {
         Library lib = new Library();
         ExeSql exe = new ExeSql();
         int option = 1;
+        //clean the data
+        exe.getSql("delete from songs where id>99",0);
+        exe.getSql("delete from artists where id>112020",0);
+        exe.getSql("delete from albums where id>99",0);
         // loop:
         while(option>0){
             System.out.println("Please select your option (you have 3 options): ");
@@ -101,33 +105,59 @@ public class Song extends Entity {
             Scanner in = new Scanner(System.in);
             int choice1 = in.nextInt();
             if(choice1 == 1){
-                exe.getSql("select * from songs;");
+                exe.getSql("select s.id as id, s.name as name, a.name as artist, b.name as album from songs as s left join artists as a on a.id =s.artist left join albums as b on s.album = b.id;");
             }else if(choice1 ==2){
                 System.out.println("Please select your second option (you have 3 options): ");
                 System.out.println("  1. Song ");
                 System.out.println("  2. Artist ");
                 System.out.println("  3. Album ");
                 Scanner in2 = new Scanner(System.in);
-                int c2 = in.nextInt();
+                int c2 = in2.nextInt();
                 String json = "";
                 if(c2==1){
-                    System.out.println("Please input song name: ");
+                    System.out.println("Please input artistid and show all songs about it:(e.g. 112020) ");
                     Scanner in3 = new Scanner(System.in);
-                    String c3 = in.nextLine();
-                    exe.getSql("select * from songs where name=\""+c3+"\";");
+                    String c3 = in3.nextLine();
+                    //https://theaudiodb.com/api/v1/json/2/mvid.php?i=112020
+                    json = lib.loadJson("https://theaudiodb.com/api/v1/json/2/mvid.php?i="+c3);
+                    System.out.println(json);
+                    System.out.println("Do you want to insert this information into songs? (Y/N)");
+                    Scanner in4 = new Scanner(System.in);
+                    String c4 = in4.nextLine();
+                    if(c4.equals("Y")) {
+                        lib.addFromJson(json,"song");
+                    }
                 }else if(c2==2){
-                    System.out.println("Please input artist name: ");
+                    System.out.println("Please input artist name and show the detail: (e.g. coldplay)");
                     Scanner in3 = new Scanner(System.in);
-                    String c3 = in.nextLine();
-                    exe.getSql("select * from artists where name=\""+c3+"\";");
+                    String c3 = in3.nextLine();
+                    //https://www.theaudiodb.com/api/v1/json/2/search.php?s=coldplay
+                    json = lib.loadJson("https://www.theaudiodb.com/api/v1/json/2/search.php?s="+c3);
+                    System.out.println(json);
+                    System.out.println("Do you want to insert this information into artists? (Y/N)");
+                    Scanner in4 = new Scanner(System.in);
+                    String c4 = in4.nextLine();
+                    if(c4.equals("Y")) {
+                        lib.addFromJson(json,"artist");
+                    }
                 }else if(c2==3){
-                    System.out.println("Please input artist name: ");
+                    System.out.println("Please input artist name and show all albums about it:(e.g. 112020) ");
                     Scanner in3 = new Scanner(System.in);
-                    String c3 = in.nextLine();
-                    exe.getSql("select * from albums where name=\""+c3+"\";");
+                    String c3 = in3.nextLine();
+                    //https://theaudiodb.com/api/v1/json/2/album.php?i=112020
+                    json = lib.loadJson("https://theaudiodb.com/api/v1/json/2/album.php?i="+c3);
+                    System.out.println(json);
+                    System.out.println("Do you want to insert this information into artists? (Y/N)");
+                    Scanner in4 = new Scanner(System.in);
+                    String c4 = in4.nextLine();
+                    if(c4.equals("Y")) {
+                        lib.artistname = c3;
+                        lib.addFromJson(json, "album");
+                    }
                 }
             }else if(choice1 ==3){
-                ResultSet res = exe.getSql("");
+                System.out.println("Generate a xml file ( ^-^ )");
+                ResultSet res = exe.getSql("select id, name, artist, album from songs;");
                 Playlist play = new Playlist();
                 play.getInfo(res);
             }else{

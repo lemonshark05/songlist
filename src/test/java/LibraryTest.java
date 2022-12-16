@@ -35,8 +35,8 @@ public class LibraryTest {
     void testUrl() {
         //Test website : TheAudioDB
         lib = new Library();
-        String json = lib.loadJson("https://theaudiodb.com/api/v1/json/2/mvid.php?i=112020");
+        String json = lib.loadJson("https://theaudiodb.com/api/v1/json/2/discography.php?s=coldplay");
         System.out.println(json);
-        lib.readFromJson(json);
+        lib.addFromJson(json,"artist");
     }
 }
