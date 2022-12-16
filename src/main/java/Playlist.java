@@ -6,12 +6,18 @@ import java.nio.file.Paths;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Scanner;
-
+/**
+ * @author zhimin
+ * @version 1.1
+ */
 public class Playlist {
     private ArrayList<Song> songlist;
 
     public Playlist() { songlist = new ArrayList<Song>(); }
 
+    /**
+     * @param s
+     */
     public void addSong(Song s) { songlist.add(s); }
 
     public void toStirng() {
@@ -20,6 +26,9 @@ public class Playlist {
         }
     }
 
+    /**
+     * @param s
+     */
     public void deleteSong(Song s) {
         if (songlist.contains(s)){
             songlist.remove(s);
@@ -28,6 +37,9 @@ public class Playlist {
         }
     }
 
+    /**
+     * @return
+     */
     public String createXML(){
         String record = System.getProperty("user.dir")+"/src/test.xml";
         Scanner sc = getFileHandle(record);
@@ -46,6 +58,10 @@ public class Playlist {
         return xml;
     }
 
+    /**
+     * @param filename
+     * @return
+     */
     public Scanner getFileHandle(String filename) {
         //needs to be initialized
         Scanner sc = new Scanner(System.in);
@@ -59,6 +75,9 @@ public class Playlist {
         return sc;
     }
 
+    /**
+     * @param rs
+     */
     public void getInfo(ResultSet rs){
         try{
             while (rs.next()) {

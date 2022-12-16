@@ -1,7 +1,3 @@
-/**
- * CS 514
- * Zhimin meng
- */
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -10,7 +6,10 @@ import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
-
+/**
+ * @author zhimin
+ * @version 1.1
+ */
 public class Library {
     private ArrayList<Song> songs;
     private ExeSql exe;
@@ -18,10 +17,17 @@ public class Library {
 
     public Library() { songs = new ArrayList<Song>(); exe = new ExeSql();}
 
+    /**
+     * @param s
+     */
     public void addSong(Song s) {
         songs.add(s);
     }
 
+    /**
+     * @param n
+     * @return
+     */
     public Song findSong(String n) {
         for(int i=0;i<songs.size();i++){
             if(songs.get(i).getName().equals(n)){
@@ -30,21 +36,20 @@ public class Library {
         }
         return null;
     }
-    public ArrayList<Song> getLinked() {
-        ArrayList<Song> likedSongs = new ArrayList<Song>();
-        for(int i = 0;i<songs.size();i++){
-            if (songs.get(i).isLiked()) {
-                likedSongs.add(songs.get(i));
-            }
-        }
-        return likedSongs;
-    }
 
+    /**
+     * @param n
+     * @return
+     */
     public String getContent(Node n) {
         Node child = n.getFirstChild();
         return child.getNodeValue().trim();
     }
 
+    /**
+     * @param urlstr
+     * @return
+     */
     public String loadJson(String urlstr){
         StringBuilder json = new StringBuilder();
         try{
@@ -62,6 +67,10 @@ public class Library {
             return json.toString();
     }
 
+    /**
+     * @param json
+     * @param type
+     */
     public void addFromJson(String json, String type) {
         try{
             JSONParser parser = new JSONParser();

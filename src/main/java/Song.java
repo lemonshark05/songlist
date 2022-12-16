@@ -1,81 +1,67 @@
 import java.sql.ResultSet;
 import java.util.Scanner;
-
 /**
- * CS 514
- * Zhimin meng
+ * @author zhimin
+ * @version 1.1
  */
-
 public class Song extends Entity {
     protected Album album;
     protected Artist artist;
-    protected SongInterval interval;
     protected String genre;
-    protected boolean liked;
-
-    public boolean isLiked() {
-        return liked;
-    }
-
-    public void setLiked(boolean liked) {
-        this.liked = liked;
-    }
 
     public Song(String name) {
         super(name);
     }
 
-    public String getGenre() {
-        return genre;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
-
-    public void setLength(int length) {
-        interval = new SongInterval(length);
-    }
-
+    /**
+     * @return
+     */
     public Artist getArtist() {
         return artist;
     }
 
+    /**
+     * @param artist
+     */
     public void setArtist(Artist artist) {
         this.artist = artist;
     }
 
-    public SongInterval getInterval() {
-        return interval;
-    }
-
+    /**
+     * @param other
+     * @return
+     */
     public boolean equals(Song other){
         return (this.name.equals(other.name) &&
                 this.artist.equals(other.artist) &&
                 this.album.equals(other.album));
     }
 
+    /**
+     * @return
+     */
     public Album getAlbum() {
         return album;
     }
 
+    /**
+     * @param album
+     */
     public void setAlbum(Album album) {
         this.album = album;
     }
 
-    public Artist getPerformer() {
-        return artist;
-    }
-
-    public void setPerformer(Artist performer) {
-        this.artist = performer;
-    }
-
+    /**
+     * @return
+     */
     public String toString(){
         return "Name: "+this.name+" ID: "+this.entityID+" Artist:"+
                 this.artist.name+" Album: "+this.album.name+"genre: "+this.genre;
     }
 
+    /**
+     * @return
+     */
     public String toXML(){
 
         String xml = "<song id=\""+this.entityID +"\">\n<title>\n"+this.name+"</title>\n";
@@ -89,6 +75,9 @@ public class Song extends Entity {
         return xml+"</song>\n";
     }
 
+    /**
+     * @param args
+     */
     public static void main(String[] args) {
         Library lib = new Library();
         ExeSql exe = new ExeSql();

@@ -16,20 +16,11 @@ public class LibraryTest {
     void setup(){
         lib = new Library();
         s1 = new Song("My Generation");
-        s1.setLiked(true);
         s2 = new Song("Whip it");
         lib.addSong(s1);
         lib.addSong(s2);
     }
 
-    @Test
-    void test1() {
-        System.out.printf("Finding My Generation %s", lib.findSong("My Generation"));
-        ArrayList<Song> liked = lib.getLinked();
-        for (Song s:liked) {
-            System.out.printf("%s\n", s.toString());
-        }
-    }
 
     @Test
     void testUrl() {

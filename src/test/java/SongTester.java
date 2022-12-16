@@ -8,8 +8,6 @@ public class SongTester {
         Song s2 = new Song("Love me do");
         System.out.printf("%d %d\n", s1.getEntityID(), s2.getEntityID());
         System.out.println(s1.getDataCreated());
-        s1.setLength(533);
-        System.out.println(s1.getInterval());
         // test equals
         Artist a1 = new Artist("The Beatles");
         Artist a2 = new Artist("The Beatles");
@@ -50,18 +48,18 @@ public class SongTester {
 
         Song s3 = new Song("Mike");
         Song s4 = new Song("Mike");
-        s3.setPerformer(a1);
-        s4.setPerformer(a1);
+        s3.setArtist(a1);
+        s4.setArtist(a1);
         s3.setAlbum(album1);
         s4.setAlbum(album1);
         if(s3.equals(s4)) {
             System.out.println("Song equality works");
         }
-        s3.setPerformer(a2);
+        s3.setArtist(a2);
         if (!s3.equals(s4)){
             System.out.println("Song equality works");
         }
-        s3.setPerformer(a1);
+        s3.setArtist(a1);
         s3.setAlbum(album2);
         if (!s3.equals(s4)){
             System.out.println("Song equality works");

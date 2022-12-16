@@ -1,7 +1,13 @@
 import java.sql.*;
-
+/**
+ * @author zhimin
+ * @version 1.1
+ */
 public class ExeSql {
-
+    /**
+     * @param sql
+     * @param type
+     */
     public void getSql (String sql, int type){
         Connection connection = null;
         try {
@@ -26,6 +32,10 @@ public class ExeSql {
             }
         }
     }
+
+    /**
+     * @param sql
+     */
     public void showSql(String sql){
         Connection connection = null;
         ResultSet rs = null;
@@ -55,6 +65,10 @@ public class ExeSql {
         }
     }
 
+    /**
+     * @param sql
+     * @return
+     */
     public Playlist getSqllist(String sql){
         Connection connection = null;
         ResultSet rs = null;

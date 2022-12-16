@@ -1,7 +1,3 @@
-/**
- * CS 514
- * Zhimin meng
- */
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,7 +7,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class AlbumTest {
     Album album1, album2;
     Artist artist1;
-
     @BeforeAll
     static void startSetup() {
 
