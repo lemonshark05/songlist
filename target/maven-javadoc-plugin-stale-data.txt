@@ -1,0 +1,73 @@
+/Library/Java/JavaVirtualMachines/jdk-18.0.2.1.jdk/Contents/Home/bin/javadoc
+@options
+@argfile
+-classpath
+'/Users/lemonshark/.m2/repository/org/xerial/sqlite-jdbc/3.36.0.3/sqlite-jdbc-3.36.0.3.jar:/Users/lemonshark/.m2/repository/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar:/Users/lemonshark/.m2/repository/junit/junit/4.10/junit-4.10.jar:/Users/lemonshark/.m2/repository/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar:/Users/lemonshark/.m2/repository/javax/xml/parsers/jaxp-api/1.4.5/jaxp-api-1.4.5.jar:/Users/lemonshark/.m2/repository/org/w3c/dom/2.3.0-jaxb-1.0.6/dom-2.3.0-jaxb-1.0.6.jar'
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'/Users/lemonshark/IdeaProjects/songlist/songlist/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2022. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/Users/lemonshark/IdeaProjects/songlist/songlist/target/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'songlist 1.1 API'
+-use
+-version
+-windowtitle
+'songlist 1.1 API'
+'/Users/lemonshark/IdeaProjects/songlist/songlist/src/main/java/Song.java'
+'/Users/lemonshark/IdeaProjects/songlist/songlist/src/main/java/Album.java'
+'/Users/lemonshark/IdeaProjects/songlist/songlist/src/main/java/Library.java'
+'/Users/lemonshark/IdeaProjects/songlist/songlist/src/main/java/Artist.java'
+'/Users/lemonshark/IdeaProjects/songlist/songlist/src/main/java/Playlist.java'
+'/Users/lemonshark/IdeaProjects/songlist/songlist/src/main/java/ExeSql.java'
+'/Users/lemonshark/IdeaProjects/songlist/songlist/src/main/java/Entity.java'
+/Users/lemonshark/.m2/repository/org/xerial/sqlite-jdbc/3.36.0.3/sqlite-jdbc-3.36.0.3.jar = 1670891265730
+/Users/lemonshark/.m2/repository/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar = 1668451635601
+/Users/lemonshark/.m2/repository/junit/junit/4.10/junit-4.10.jar = 1668451635647
+/Users/lemonshark/.m2/repository/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar = 1668451635626
+/Users/lemonshark/.m2/repository/javax/xml/parsers/jaxp-api/1.4.5/jaxp-api-1.4.5.jar = 1670902866528
+/Users/lemonshark/.m2/repository/org/w3c/dom/2.3.0-jaxb-1.0.6/dom-2.3.0-jaxb-1.0.6.jar = 1670902814030
+/Users/lemonshark/IdeaProjects/songlist/songlist/src/main/java/Song.java = 1671179329110
+/Users/lemonshark/IdeaProjects/songlist/songlist/src/main/java/Album.java = 1671179151769
+/Users/lemonshark/IdeaProjects/songlist/songlist/src/main/java/Library.java = 1671179628395
+/Users/lemonshark/IdeaProjects/songlist/songlist/src/main/java/Artist.java = 1671179151820
+/Users/lemonshark/IdeaProjects/songlist/songlist/src/main/java/Playlist.java = 1671179628404
+/Users/lemonshark/IdeaProjects/songlist/songlist/src/main/java/ExeSql.java = 1671179151817
+/Users/lemonshark/IdeaProjects/songlist/songlist/src/main/java/Entity.java = 1671179628333
+/Users/lemonshark/IdeaProjects/songlist/songlist/src/main/java = 1671182878428
+/Users/lemonshark/IdeaProjects/songlist/songlist/target/apidocs/tag-search-index.js = 1671256164699
+/Users/lemonshark/IdeaProjects/songlist/songlist/target/apidocs/overview-tree.html = 1671256164666
+/Users/lemonshark/IdeaProjects/songlist/songlist/target/apidocs/module-search-index.js = 1671256164698
+/Users/lemonshark/IdeaProjects/songlist/songlist/target/apidocs/index.html = 1671256164740
+/Users/lemonshark/IdeaProjects/songlist/songlist/target/apidocs/package-search-index.js = 1671256164698
+/Users/lemonshark/IdeaProjects/songlist/songlist/target/apidocs/jquery-ui.overrides.css = 1671256164765
+/Users/lemonshark/IdeaProjects/songlist/songlist/target/apidocs/Song.html = 1671256164537
+/Users/lemonshark/IdeaProjects/songlist/songlist/target/apidocs/package-use.html = 1671256164663
+/Users/lemonshark/IdeaProjects/songlist/songlist/target/apidocs/Album.html = 1671256164211
+/Users/lemonshark/IdeaProjects/songlist/songlist/target/apidocs/index-all.html = 1671256164737
+/Users/lemonshark/IdeaProjects/songlist/songlist/target/apidocs/allpackages-index.html = 1671256164695
+/Users/lemonshark/IdeaProjects/songlist/songlist/target/apidocs/Library.html = 1671256164419
+/Users/lemonshark/IdeaProjects/songlist/songlist/target/apidocs/member-search-index.js = 1671256164699
+/Users/lemonshark/IdeaProjects/songlist/songlist/target/apidocs/copy.svg = 1671256164752
+/Users/lemonshark/IdeaProjects/songlist/songlist/target/apidocs/script.js = 1671256164752
+/Users/lemonshark/IdeaProjects/songlist/songlist/target/apidocs/stylesheet.css = 1671256164751
+/Users/lemonshark/IdeaProjects/songlist/songlist/target/apidocs/help-doc.html = 1671256164748
+/Users/lemonshark/IdeaProjects/songlist/songlist/target/apidocs/package-summary.html = 1671256164562
+/Users/lemonshark/IdeaProjects/songlist/songlist/target/apidocs/Artist.html = 1671256164286
+/Users/lemonshark/IdeaProjects/songlist/songlist/target/apidocs/Playlist.html = 1671256164462
+/Users/lemonshark/IdeaProjects/songlist/songlist/target/apidocs/package-tree.html = 1671256164566
+/Users/lemonshark/IdeaProjects/songlist/songlist/target/apidocs/element-list = 1671256164539
+/Users/lemonshark/IdeaProjects/songlist/songlist/target/apidocs/allclasses-index.html = 1671256164691
+/Users/lemonshark/IdeaProjects/songlist/songlist/target/apidocs/ExeSql.html = 1671256164389
+/Users/lemonshark/IdeaProjects/songlist/songlist/target/apidocs/Entity.html = 1671256164351
+/Users/lemonshark/IdeaProjects/songlist/songlist/target/apidocs/type-search-index.js = 1671256164698
+/Users/lemonshark/IdeaProjects/songlist/songlist/target/apidocs/search.js = 1671256164754
